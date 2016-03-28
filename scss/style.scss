@@ -1,1 +1,71 @@
+@import 'reset';
+@import 'responsive';
 
+$blue-color : #083055;
+$green-color : #9bb333;
+$orange-color : #e88d22;
+$pink-color : #c62880;
+$gray-color : #363739;
+$graylight-color: #f2f4f3;
+
+body {
+  font: 100% Helvetica, sans-serif;
+  background-color: $graylight-color;
+  color: $gray-color;
+}
+#wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid #000;
+  padding: 10px;
+  min-height: 200px;
+  background: $pink-color;	
+  @media screen and (max-width: 480px) {
+    background: $orange-color;
+  } 
+}
+
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+.box_radius1 { @include border-radius(10px); }
+
+
+// Extend/Inheritance
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+}
+
+.warning {
+  @extend .message;
+  border-color: yellow;
+}
+
+
+
+.box {
+	min-height: 200px;
+	width: 45%;
+	float: left;
+	background: #fff;
+}
+.box:nth-child(even) {
+	float: right;
+
+}
